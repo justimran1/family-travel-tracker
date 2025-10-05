@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles/login.css" />
+    <title>Family Travel Tracker – Login/Register</title>
+  </head>
+
+  <body>
+    <div class="form-container">
+      <h2 id="form-title">Login</h2>
+
+      <!-- LOGIN FORM -->
+      <form id="login-form" class="active" action="/login" method="POST">
+        <input type="email" name="email" placeholder="Email" required />
+        <input
+          type="password"
+          name="password"
+          placeholder="Password"
+          required
+        />
+        <button type="submit">Login</button>
+        <button type="button" class="switch-btn" id="show-register">
+          Don't have a family account? Register
+        </button>
+      </form>
+
+      <!-- REGISTER FORM -->
+      <form id="register-form" action="/register" method="POST">
+        <input type="text" name="name" placeholder="Family Name" required />
+        <input type="email" name="email" placeholder="Family Email" required />
+        <input
+          type="password"
+          name="password"
+          placeholder="Password"
+          required
+        />
+        <button type="submit">Register</button>
+        <button type="button" class="switch-btn" id="show-login">
+          Already have an account? Login
+        </button>
+      </form>
+      <% if (locals.error) { %>
+      <p style="color: red"><%= error %></p>
+      <% } %>
+    </div>
+
+    <script>
+      const loginForm = document.getElementById("login-form");
+      const registerForm = document.getElementById("register-form");
+      const title = document.getElementById("form-title");
+      const showRegister = document.getElementById("show-register");
+      const showLogin = document.getElementById("show-login");
+
+      // Show Register Form
+      showRegister.addEventListener("click", () => {
+        loginForm.classList.remove("active");
+        registerForm.classList.add("active");
+        title.textContent = "Register";
+      });
+
+      // Show Login Form
+      showLogin.addEventListener("click", () => {
+        registerForm.classList.remove("active");
+        loginForm.classList.add("active");
+        title.textContent = "Login";
+      });
+    </script>
+  </body>
+</html>

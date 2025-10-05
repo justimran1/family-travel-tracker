@@ -1,0 +1,95 @@
+:root {
+  --apple-bg: linear-gradient(180deg, #0d0d0f 0%, #1a1a1c 100%);
+  --apple-glass: rgba(30, 30, 32, 0.6);
+  --apple-border: rgba(255, 255, 255, 0.08);
+  --apple-text: #f5f5f7;
+  --apple-subtext: #9b9ba0;
+  --apple-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+
+  /* 🍇 Apple Purple Gradient Accent */
+  --apple-accent: linear-gradient(90deg, #7b61ff, #6627be, #bf34ff);
+}
+
+body.details-page {
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text",
+    "SF Pro Display", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-family: "Arial", sans-serif;
+  background: var(--apple-bg);
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  background: var(--apple-bg);
+  padding: 2rem;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  width: 500px;
+  text-align: center;
+}
+
+.title {
+  font-size: 2rem;
+  color: var(--apple-text);
+  margin-bottom: 1.5rem;
+}
+
+.highlight {
+  background: var(--apple-accent);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: bold;
+}
+
+.upload-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.description {
+  padding: 15px;
+  border: 1px solid #ddd;
+  font-size: 1rem;
+  width: 100%;
+  box-sizing: border-box;
+  resize: none;
+}
+
+.description:focus {
+  border-color: var(--apple-accent);
+  outline: none;
+}
+
+.file-input {
+  padding: 10px;
+  border: 1px solid var(--apple-accent);
+  font-size: 1rem;
+  width: 100%;
+  box-sizing: border-box;
+  background-color: var(--apple-text);
+}
+
+.file-input:focus {
+  border-color: var(--apple-accent);
+  outline: none;
+}
+
+.submit-button {
+  margin-top: 4rem;
+  padding: 15px;
+  border: none;
+  font-size: 1rem;
+  font-weight: 600;
+  width: 100%;
+  background: var(--apple-accent);
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.submit-button:hover {
+  background-color: var(--apple-accent);
+}

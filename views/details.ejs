@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Share Your Moments</title>
+    <link rel="stylesheet" href="/styles/details.css" />
+  </head>
+  <body class="details-page">
+    <div class="container">
+      <h1 class="title">
+        Share your <span class="highlight">Favourite</span> Moments
+      </h1>
+      <form
+        class="upload-form"
+        action="/uploadsRoute"
+        method="post"
+        enctype="multipart/form-data"
+      >
+        <textarea
+          class="description"
+          name="desc"
+          placeholder="Describe your moment..."
+          required
+          rows="4"
+        ></textarea>
+        <input
+          class="file-input"
+          type="file"
+          name="photos"
+          accept="image/*"
+          required
+          multiple
+        />
+        <button class="submit-button" type="submit">Upload</button>
+      </form>
+    </div>
+  </body>
+</html>
