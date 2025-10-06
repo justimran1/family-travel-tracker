@@ -18,4 +18,4 @@ const db = new Pool({
 // });
 // db.connect();
 
-export default db;
+export default { db };
