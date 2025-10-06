@@ -19,8 +19,8 @@
   font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text",
     "SF Pro Display", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   position: absolute;
-  display: flex;
-  justify-content: center;
+  top: 35%;
+  left: 40%;
   transform: translate(-35%, -35%);
   color: #ffffff;
 }
@@ -111,10 +111,4 @@ label span.purple {
 }
 label span.pink {
   background: #e03997;
-}
-@media screen and (max-width: 600px) {
-  .body {
-    display: flex;
-    justify-content: center;
-  }
 }
