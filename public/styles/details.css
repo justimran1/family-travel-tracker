@@ -88,6 +88,7 @@ body.details-page {
   color: white;
   cursor: pointer;
   transition: background-color 0.2s ease;
+  border-radius: 4px;
 }
 
 .submit-button:hover {
