@@ -162,7 +162,7 @@ h2 {
 }
 
 .text {
-  text-align: center;
+  text-align: left;
 }
 .photos::before {
   left: 0;
@@ -627,9 +627,9 @@ button:hover {
   font-size: 13px;
   line-height: 49px;
 }
-.tab-view > label:hover {
+/* .tab-view > label:hover {
   background: var(--apple-accent);
-}
+} */
 .tab-view > input:checked + label {
   background: #fff;
 }

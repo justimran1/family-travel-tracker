@@ -184,7 +184,7 @@ app.get("/home", requireLogin, async (req, res) => {
       colour: currentuser?.usercolor
         ? currentuser.usercolor.toLowerCase().trim()
         : "purple",
-      family: req.session.family || { name: "Guest" },
+      family: req.session.family ? req.session.family : { name: "Guest" },
     });
   } catch (error) {
     console.error("Error fetching homepage:", error);
@@ -194,10 +194,9 @@ app.get("/home", requireLogin, async (req, res) => {
 
 app.post("/details", async (req, res) => {
   const x = req.body["country_name"];
-  const names = await checkVisisted2();
-  const country_result = names.find((country) => country == x);
-  usercountry = country_result;
-  console.log(usercountry);
+  console.log("this is the country name", x);
+  usercountry = x;
+  console.log(usercountry, "✔✔✔");
   res.render("details.ejs");
 });
 
