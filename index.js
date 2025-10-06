@@ -5,7 +5,7 @@ import multer from "multer";
 dotenv.config();
 
 import cloudinary from "./cloudinary.js";
-import { db } from "./db.js";
+import db from "./db.js";
 import router from "./login.js";
 import connectPgSimple from "connect-pg-simple";
 import session from "express-session";
