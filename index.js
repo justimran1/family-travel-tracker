@@ -13,6 +13,8 @@ const app = express();
 const port = 3000;
 const storage = multer.memoryStorage();
 const upload = multer({ storage });
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.static("public"));
 
 const pgSession = connectPgSimple(session);
 
@@ -52,15 +54,12 @@ app.set("view engine", "ejs");
 // Middleware
 function requireLogin(req, res, next) {
   if (!req.session.family) {
-    return res.redirect("login.ejs");
+    return res.redirect("/");
   }
   console.log("Logged in family ID:", req.session.family.id);
   next();
 }
 app.use("/", router);
-
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static("public"));
 
 let currentUserId;
 let usercountry = "";
@@ -185,7 +184,7 @@ app.get("/home", requireLogin, async (req, res) => {
       colour: currentuser?.usercolor
         ? currentuser.usercolor.toLowerCase().trim()
         : "purple",
-      family: req.session.family,
+      family: req.session.family || { name: "Guest" },
     });
   } catch (error) {
     console.error("Error fetching homepage:", error);

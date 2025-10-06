@@ -38,7 +38,7 @@ router.post("/register", async (req, res) => {
       name: newFamily.family_name,
       email: newFamily.email,
     };
-    res.render("index.ejs");
+    res.redirect("/home");
   } catch (error) {
     console.error("Error creating family:", error);
     res.status(500).send("Registration failed");
