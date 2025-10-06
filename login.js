@@ -5,6 +5,7 @@ import db from "./db.js";
 const router = express.Router();
 router.use(bodyParser.urlencoded({ extended: true }));
 
+router.use(express.static("public"));
 router.post("/register", async (req, res) => {
   const { name, email, password } = req.body;
 

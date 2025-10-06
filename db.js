@@ -9,6 +9,13 @@ const db = new Pool({
     rejectUnauthorized: false,
   },
 });
-db.connect();
+// const db = new pkg.Client({
+//   user: "postgres",
+//   host: "localhost",
+//   database: "World",
+//   password: "olubodun112",
+//   port: 5432,
+// });
+// db.connect();
 
 export default db;

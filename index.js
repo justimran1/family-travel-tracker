@@ -5,27 +5,48 @@ import multer from "multer";
 dotenv.config();
 
 import cloudinary from "./cloudinary.js";
-import db from "./db.js";
+import { db } from "./db.js";
 import router from "./login.js";
-
+import connectPgSimple from "connect-pg-simple";
 import session from "express-session";
 const app = express();
 const port = 3000;
 const storage = multer.memoryStorage();
 const upload = multer({ storage });
+
+const pgSession = connectPgSimple(session);
+
 app.use(
   session({
-    secret: process.env.SESSION_SECRET, // read from .env
+    store: new pgSession({
+      pool: db, // connection pool
+      tableName: "session", // optional name for table
+    }),
+    secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: false,
     cookie: {
       maxAge: 1000 * 60 * 60 * 2, // 2 hours
-      httpOnly: true,
-      secure: process.env.NODE_ENV === "production", // only over HTTPS in production
       sameSite: "lax",
+      secure: process.env.NODE_ENV === "production",
     },
   })
 );
+
+// app.use(
+//   session({
+//     secret: process.env.SESSION_SECRET, // read from .env
+//     resave: false,
+//     saveUninitialized: false,
+//     cookie: {
+//       maxAge: 1000 * 60 * 60 * 2, // 2 hours
+//       httpOnly: true,
+//       secure: process.env.NODE_ENV === "production", // only over HTTPS in production
+//       sameSite: "lax",
+//     },
+//   })
+// );
+
 app.set("view engine", "ejs");
 
 // Middleware

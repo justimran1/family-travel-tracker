@@ -83,10 +83,6 @@ button:hover {
   font-size: 0.9rem;
 }
 
-.switch-btn:hover {
-  background: var(--apple-accent);
-}
-
 p {
   font-size: 0.9rem;
   color: #333;
